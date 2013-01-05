@@ -1,0 +1,43 @@
+####################################################################
+## Author:  banderson443                                          ##
+## Email:   banderson443@Gmail.com                                ##
+## Date:    Saturday, January 5, 2013                             ##
+## Site:    http://GeekBlog.TV                                    ##
+## License: CC-Attribution-NonCommercial-ShareAlike 3.0 Unported  ##
+####################################################################
+
+For Windows and Mac
+http://xbmc.org/download/
+
+Installing xbmc on fedora
+- yum install xbmc (rpmfusion repo)
+Installing xbmc on ubuntu
+- apt-get install xbmc
+
+Plugins
+- bluecop repo http://code.google.com/p/bluecop-xbmc-repo/ (free cable plugin)
+  -download bluecop repo zip file from google code
+	-in xbmc navigate to system > settings > addons > install from zip file > navigate to the zip file and click it or hit enter. 
+	-you should get a pop up that says bluecop repo enabled
+	-to add addons from the repo (for example free cable) go to Videos > Addons > Get More > and then browse down to free cable select it and hit install 
+-XBMC Fusion installer
+	- here's the guide from xbmchub -- http://www.xbmchub.com/blog/2012/04/24/fusion-easy-addon-installation-for-xbmc/
+	- this is a real easy way to access more addons 
+	- To add the xbmchub fusion installer navigate to System > File Manager > Add Source > Click the box that says none
+		type in "http://FUSION.XBMCHUB.COM (i can't get it to work lower case don't know why or we don't care.) In the bottom box type the name fusion and hit ok. 
+	-Now when you go to System > File Manager > Fusion  you will see catogories of addons. For instance sports devil is under sports
+-Navi-x 
+	- grab the navi-x zip file from http://code.google.com/p/navi-x/downloads/detail?name=Navi-X_v37_6.zip&can=2&q=
+	- in xbmc navigate to system > settings > addons > install from zip file > navigate to the zip file and click it or hit enter.
+	- you should recieve a popup saying navi-x is enabled 
+	- you find navi-x under program addons and i usually browse to Media Portal > Most viewed 24 hours (thats where the pirate bay and in theatre movies are.)
+	- navi-x will let you stream or download any of the content just right click the title of a file to send it to your downloads. 
+
+Other Add-ons to Note
+Video add-ons Jupiter Broadcasting for Linux Action Show, Sports Devil, Video Devil (18+ i'll let you find this one), Reddit Videos, Revision3, Youtube
+Program add-ons rtorrent, utorrent, mceremote
+Music add-ons grooveshark, pandora, soundcloud
+
+Let us know what you guys think. 
+ 
+	  
