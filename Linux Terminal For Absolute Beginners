@@ -1,0 +1,38 @@
+####################################################################
+## Author:  James Kegel                                           ##
+## Email:   GeekBlogTV@Gmail.com                                  ##
+## Date:    Monday, January 7, 2013                               ##
+## Site:    http://GeekBlog.TV                                    ##
+## License: CC-Attribution-NonCommercial-ShareAlike 3.0 Unported  ##
+####################################################################
+
+Linux Terminal For Absolute Beginners!
+
+This is a segment I've been wanting to do for a while! I know a lot 
+of you want to get started with Linux, and this is my guide for the
+most important part of Linux, and the biggest assett, the terminal!
+
+In this video, we will cover the following commands, and maybe a few
+more. I've already shot the video, so I'm mentioning these from
+memory, so there could be more. Cat, LS, Ping, Ifconfig, Iwconfig,
+apt-get, yum, CP, RM, Less, More, Grep, and I think I am forgetting
+a few..
+
+If you are unfamiliar with a command, there is something that I 
+forgot to mention in the show, you can use what are called "man 
+pages" to read the MANual on the tool if you have questions.
+
+Use it like this:
+
+$ man <command name>
+
+example:
+
+$ man ifconfig
+
+This will bring up the manual page for whatever command you put in 
+there. To exit the manual that pops up, use the "Q" button.
+
+If you like this video, be sure to share, like, and subscribe!!
+
+Thanks for watching! -James
