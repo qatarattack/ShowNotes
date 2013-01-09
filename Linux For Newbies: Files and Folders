@@ -1,0 +1,57 @@
+####################################################################
+## Author:  James Kegel                                           ##
+## Email:   GeekBlogTV@Gmail.com                                  ##
+## Date:    Wed Jan  9 00:39:42 CST 2013                          ##
+## Site:    http://GeekBlog.TV                                    ##
+## License: CC-Attribution-NonCommercial-ShareAlike 3.0 Unported  ##
+####################################################################
+
+Linux for Newbies: Files and Folders 
+------------------------------------
+
+So I got a request from one of my faithful YouTube viewers, and he
+wanted to know about the file structure and directory structure
+behind linux. 
+
+Thanks Aerofart for requesting the video!
+
+Here is a quick summary of the various directories you will find
+inside the Linux file system. I will include references to the
+directories they are similar to in windows.
+
+Directories
+
+/ - Root directory
+The root directory is like the trunk of a family-tree. It is the
+beginning of everything. Even drives and devices are treated like
+files in Linux
+
+/home - Home Directory
+The home directory is like the equivalent of the Documents and 
+Settings directory on Windows where you will find the various users
+and their associate files.
+
+/root - Slash Root or Root Home
+This is the home directory for the "root" user. In Linux, Root
+is the same thing as the system-wide administrator in windows.
+
+/etc - Sounds like Etsy
+This is the file where most of your config files are going to be.
+There are mostly text files and uninteresting unless you are 
+messing with the repository references for your package manager
+of choice
+
+/dev - Device
+This is where you find urandom and null, which are about the only 
+two interesting things in that folder. these are devices, which 
+can include your mouse or whatever drive
+
+/mnt - Mount
+These are devices that can be mounted and unmounted, like floppies
+and other devices.
+
+/tmp - Temp
+Garbage file. Ask Joey.
+
+I hope this helps you guys! Share, Like, Subscribe!
+Join us in IRC Chat! #GeekBlogTV on irc.freenode.net
