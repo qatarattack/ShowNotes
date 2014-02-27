@@ -1,0 +1,111 @@
+## You should SSH into your Linux server to do this. When I say server, I mean the computer you want your connection to come out of. Ideally, this is in another country or something.
+## All commands are being entered as root. Sudo is for ninnies. When all of this is done, you should disable SSH as root so that people don't take advantage of your server.
+## Today we will be using a VPS from DigitalOcean.com, which is 5 bucks a month for 1TB of bandwidth. 
+## The operating system is Ubuntu Server 12.04.3 64 bit. 
+## Type these commands into the SSH terminal. 
+
+apt-get update && apt-get upgrade -y
+
+## select your distro here and download the package you need
+## http://openvpn.net/index.php/access-server/download-openvpn-as-sw.html
+## or just follow the tutorial and use Ubuntu Server Stable (12.04.3)
+
+wget http://swupdate.openvpn.org/as/openvpn-as-2.0.3-Ubuntu12.amd_64.deb
+dpkg -i openvpn-as-2.0.3-Ubuntu12.amd_64.deb
+
+## user 'openvpn' was created during install
+## set a password for this user now. make it something complex.
+
+passwd openvpn
+
+## type the password twice, and hit enter
+##
+## next, use your home computer to access the 'Client UI' webpage we just created. 
+## it will look like this:
+## 
+## Admin  UI: https://107.170.59.95:943/admin
+## Client UI: https://107.170.59.95:943/
+##
+## dont forget to use HTTPS, and ignore any errors in the browser about the certificate.
+
+## login using the user 'openvpn' and the password you set.
+## download the "USER LOCKED PROFILE"
+## it should be called client.ovpn or something.ovpn
+
+## open your text editor, and edit the ovpn file, I'll be using nano.
+## it looks just like an HTML file, so this will be easy.
+## get ready to copy and paste!!
+
+apt-get install network-manager network-manager-openvpn network-manager-openvpn-gnome nano ssh
+## install the tools we need on our desktop to connect to our VPN
+
+mkdir ~/openvpn
+## make a folder called 'openvpn' in your home folder
+
+cp ~/Downloads/client.ovpn ~/openvpn/client.ovpn
+## copy the client.ovpn file from your downloads directory to our new directory
+
+nano /home/user/openvpn/client.ovpn
+## edit the file we just moved
+
+## we are going to copy and paste a few parts out of this ovpn file into smaller files.
+## this part is easy, and also, it is one of the last steps.
+
+## find the block of text between <ca> and </ca> inside of the client.ovpn file
+## COPY that block and paste it into a new file called "ca.crt"
+## it should look like this, but with different letters in the block, and without #'s
+
+# -----BEGIN CERTIFICATE-----
+# MIIBszCCARygAwIBAgIEUw0oHTANBgkqhkiG9w0BAQUFADAVMRMwEQYDVQQDEwpP
+# cGVuVlBOIENBMB4XDTE022IxODIzMzI0NVoXDTI0MDIyMzIzMzI0NVowFTETMBEG
+# A1UEAxMKT3BlblZQTiBDQTCBnzANBgkqhkiG9w0BAQEFs2OBjQAwgYkCgYEAqq7b
+# utgThIhREN3uFLsDUKrrWhw/TKRt7bO222CeDuD3oaGBf+SwEwuofHFU/I0eBOuL
+# u+6vd+v78qEad9woVTdRo1weRpSh5n8xX1zJKQ0BUpcdQ4hHSWNgx5arYkckT2jP
+# cju5QQBzH5ecvPgfrDzOjIpwCL1rqFH8/xikPYcCAwEAAaMQMA4wDAYDVR0TBAUw
+# AwEB/zANBgkqhkiG9w0BAQUFAAOBgQAZX/DgMIC5iwsjfpL3ahClAQ0WVeMAfPnA
+# FTd7jjV4Hs5Hbx34yZ2BE0rs54iZlZWmkLkefFQxcegV/gAFC8Cf25OSZmp3sy1K
+# kLCzIw+C5MbHYFcElvhGbxnbRm9RtqiJMNBts1BODWbHh22ss2s2sLTPULBAU7x8
+# 5tV4J9B1yQ==
+# -----END CERTIFICATE-----
+
+nano /home/user/openvpn/client.crt
+## create a file called client.crt – do the same for the block inside <cert> and </cert> from client.ovpn
+
+nano /home/user/openvpn/client.key
+## create a file called client.key – do the same for the block inside <key> and </key> from client.ovpn 
+
+nano /home/user/openvpn/ta.key
+## create a file called ta.key – do the same for the block inside <tls-auth> and </tls-auth> 
+## you should have a total of 5 files under my openvpn directory:
+## you should have the 4 files we just created, and the original ovpn file we downloaded
+
+nano ~/openvpn/client.ovpn
+## now open the 'client.ovpn' file in the openvpn folder
+## Just before the line that says ## —–BEGIN RSA SIGNATURE—– 
+## add the below lines without the ## and save
+
+## ca ca.crt
+## cert client.crt
+## key client.key
+## tls-auth ta.key
+
+
+## Click on Ubuntu network icon on the top right
+## Select VPN Connections -> Configure VPN ( the Network Connections window will open )
+## Click on the VPN tab and click Import
+## Select the client.ovpn file we just modified and it should automatically import some things into the next screen
+## Connection Name will be = client – change this to something meaningful ( i set it to companyVPN )
+## Gateway must be imported already
+## Type is : Password with Certificates ( TLS ) – this was also set for me
+## Provide the username and password for VPN
+## User certificate will be client.crt
+## CA certificate will be ca.crt
+## Private Key will be client.key
+## Click on Advanced -> TLS Authentication Tab
+## Key file will be ta.key
+## Key Direction must be set based on the key direction in your client.ovpn file
+## Open the client.ovpn file and search for “key-direction” and note the number after that ( mine is key-direction 1 )
+## Put this number in the Key Direction field in the TLS Authentication Tab
+## Click save on all windows and close all windows.
+
+
